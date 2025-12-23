@@ -95,11 +95,10 @@ func _on_button_pressed() -> void:
 		rooms.remove_child(child)
 	make_rooms()
 	await get_tree().create_timer(0.5).timeout
-	for room in rooms.get_children():
-		if randf() < cull:
-			rooms.remove_child(room)
-
 	var room_positions: Array[Vector2] = []
 	for room:RigidBody2D in rooms.get_children():
+		if randf() < cull:
+			rooms.remove_child(room)
+			continue
 		room_positions.push_back(room.position)
 	path_out = find_mst(room_positions)
