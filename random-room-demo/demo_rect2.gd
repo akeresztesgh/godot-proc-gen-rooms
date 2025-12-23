@@ -53,9 +53,9 @@ func make_rooms():
 				
 				if rect_a.intersects(rect_b):
 					moved = true
-					var direction = (room_a.position - room_b.position).normalized()
-					var overlap = (rect_a.size + rect_b.size) - (room_a.position - room_b.position).abs()
-					var push = direction * overlap / 2.0
+					var direction:Vector2 = (room_a.position - room_b.position).normalized()
+					var overlap:Vector2 = (rect_a.size + rect_b.size) - (room_a.position - room_b.position).abs()
+					var push:Vector2 = direction * overlap / 2.0
 					room_a.position += push
 					room_b.position -= push
 	
@@ -65,8 +65,7 @@ func make_rooms():
 	for room in rooms_temp:
 		if randf() < cull:
 			continue  # Skip culled rooms
-		var epsilon = 0.001 # A small value
-		var adjusted_position = room.position + Vector2(epsilon, epsilon)
+		var adjusted_position = room.position
 		var top_left_tile = adjusted_position - room.size
 		# Calculate the final Rect2i for the room's bounding box and pathing
 		var final_rect = Rect2i(top_left_tile, Vector2i(room.size * 2))
