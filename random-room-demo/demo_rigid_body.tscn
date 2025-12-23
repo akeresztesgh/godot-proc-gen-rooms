@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3bg8qvuqcg23" path="res://demo_rigid_body.gd" id="1_qewoa"]
 
-[node name="Demo1" type="Node2D"]
+[node name="DemoRigid" type="Node2D"]
 script = ExtResource("1_qewoa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
