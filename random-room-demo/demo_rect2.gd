@@ -65,8 +65,7 @@ func make_rooms():
 	for room in rooms_temp:
 		if randf() < cull:
 			continue  # Skip culled rooms
-		var adjusted_position = room.position
-		var top_left_tile = adjusted_position - room.size
+		var top_left_tile = room.position - room.size
 		# Calculate the final Rect2i for the room's bounding box and pathing
 		var final_rect = Rect2i(top_left_tile, Vector2i(room.size * 2))
 		# map coords
